@@ -3,7 +3,18 @@ const keys = require('./keys.js')
 const commands = ["my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"];
 
 let argument1 = process.argv[2],
+	argument2 = "";
+
+if (process.argv[4] !== undefined){
+	for (let i = 3; i < process.argv.length; i++){
+	  argument2 += process.argv[i] + ' ';
+	}	
+}	
+else {
 	argument2 = process.argv[3];
+}
+
+
 
 processArguments();
 
@@ -150,8 +161,15 @@ function omdb(title){
 	  // console.log('body:', body); 
 	  console.log("Title: " + body.Title);
 	  console.log("Release Year: " + body.Year);
-	  console.log(body.Ratings[0].Source + " Rating: " + body.Ratings[0].Value);
-	  console.log(body.Ratings[1].Source + " Rating: " + body.Ratings[1].Value);
+
+	  if (body.Ratings[0] === undefined || body.Ratings[1] === undefined){
+	  	console.log("Ratings: Not Found.");
+	  }
+	  else{
+	  	console.log(body.Ratings[0].Source + " Rating: " + body.Ratings[0].Value);
+	  	console.log(body.Ratings[1].Source + " Rating: " + body.Ratings[1].Value);
+	  }
+	
 	  console.log("Country: " + body.Country);
 	  console.log("Language: " + body.Language);
 	  console.log("Plot: " + body.Plot);
