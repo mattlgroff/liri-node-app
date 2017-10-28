@@ -1,8 +1,8 @@
 let keysObj = {
-	TWITTER_CONSUMER_KEY: "evuH5CAnx6xRI4UXYKYWEnl4X",
-	TWITTER_CONSUMER_SECRET: "THF3rY0zEDOq5WksIoz3FD4JM0uPTRHlLP94VKoQNEdttzT3jv",
-	SPOTIFY_CLIENT_ID: "7f1d2f4ea6e2443885e7c72db52350f5",
-	SPOTIFY_CLIENT_SECRET: "cc272b91d63446a7a2cd609c6ab7ddc2"
+	TWITTER_CONSUMER_KEY: process.env.twitter_consumer_key,
+	TWITTER_CONSUMER_SECRET: process.env.twitter_consumer_secret,
+	SPOTIFY_CLIENT_ID: process.env.spotify_client_id,
+	SPOTIFY_CLIENT_SECRET: process.env.spotify_client_secret
 }
 
 module.exports = keysObj;
